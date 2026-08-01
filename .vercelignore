@@ -1,0 +1,6 @@
+api/
+requirements.txt
+start_project.bat
+start_project.sh
+*.db
+docs/
