@@ -11,6 +11,10 @@ const getApiBaseUrl = () => {
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
       return 'http://localhost:8000';
     }
+    // If deployed on Vercel or cloud provider without explicit API URL, use same-origin relative path
+    if (hostname.includes('vercel.app') || hostname.includes('netlify.app')) {
+      return '';
+    }
     // If accessed from a mobile phone / tablet on the same Wi-Fi network:
     return `http://${hostname}:8000`;
   }
