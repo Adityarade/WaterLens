@@ -1,7 +1,7 @@
 # 🌾 WaterLens
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/Adityarade/WaterLens)
 [![Platform](https://img.shields.io/badge/Platform-Desktop%20%7C%20Mobile%20%7C%20PWA-purple.svg)](https://web.dev/progressive-web-apps/)
 [![Backend](https://img.shields.io/badge/Backend-FastAPI-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
