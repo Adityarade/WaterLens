@@ -1,97 +1,127 @@
-# 🌾 WaterLens: AI-Powered Smart Agriculture & Precision Irrigation Platform
+# 🌾 WaterLens
 
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB.svg?style=flat&logo=react&logoColor=black)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![PWA](https://img.shields.io/badge/Platform-Desktop%20%2B%20Mobile%20PWA-5A0FC8.svg?style=flat&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-> **WaterLens** is a full-stack, enterprise-grade precision agriculture and autonomous irrigation platform engineered to empower modern farmers, agronomists, and agricultural researchers. It combines **Reinforcement Learning (RL) irrigation agents**, **Computer Vision crop health diagnostics**, **interactive thermal/NDVI farm zoning**, **live APMC Mandi market rates**, **government scheme intelligence**, and a **multilingual AI conversational voice & text assistant** (English, हिन्दी, मराठी).
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](https://github.com/)
+[![Platform](https://img.shields.io/badge/Platform-Desktop%20%7C%20Mobile%20%7C%20PWA-purple.svg)](https://web.dev/progressive-web-apps/)
+[![Backend](https://img.shields.io/badge/Backend-FastAPI-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Frontend](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-61DAFB.svg?logo=react&logoColor=black)](https://react.dev/)
 
 ---
 
-## 📱 Mobile & Desktop (PWA) Ready
+## 📋 Table of Contents
 
-WaterLens is fully responsive and built with **Progressive Web App (PWA)** standards:
-- 📱 **Install on Android / iOS / Tablet / Desktop**: One-click installation from browser with custom manifest & service worker caching.
-- ⚡ **Mobile-First UX**: Ergonomic bottom navigation bar, swipeable slide-up menu drawer, responsive floating AI voice/chat triggers.
-- 🌐 **Offline Resilience**: Automatic fallback to local offline mode if the backend or network is temporarily unreachable.
-- 🖧 **LAN / Wi-Fi Device Access**: Run once on your computer and open seamlessly on any mobile phone on the same Wi-Fi network.
-
----
-
-## 🌟 Key Features
-
-### 1. 🤖 Autonomous RL Irrigation Agent
-- Simulates soil moisture dynamics, crop evapotranspiration, and weather forecasts.
-- Custom **Gymnasium** reinforcement learning environment trained to maximize crop yield while conserving up to 40% water.
-- Live reward telemetry, action tracking, and automatic valve actuator simulation.
-
-### 2. 🌿 AI Crop Doctor & Leaf Pathology Diagnostics
-- Upload or scan crop leaf photos for instant disease detection and pest identification.
-- Provides botanical diagnosis, confidence scores, organic remedies, and chemical treatment guidelines.
-
-### 3. 🗺️ Thermal & NDVI Farm Zoning Maps
-- Interactive satellite imagery overlay displaying NDVI (vegetation vigor) and thermal surface stress.
-- Zone-by-zone moisture metrics, soil temperature tracking, and recommended localized irrigation actions.
-
-### 4. 📈 Live APMC Mandi Market Prices
-- Real-time commodity price tracking across agricultural produce (Wheat, Cotton, Soybeans, Onions, Sugarcane).
-- Daily price changes, minimum/maximum range indicators, and trend analytics.
-
-### 5. 🏛️ Government Schemes & Subsidies Explorer
-- Curated database of central and state agricultural welfare schemes (PM-KUSUM, PM Krishi Sinchayee, Sub-Mission on Agricultural Mechanization).
-- Direct application links, eligibility criteria, and subsidy coverage breakdowns.
-
-### 6. 🎙️ Multilingual AI Voice & Chat Assistant
-- Natural conversational AI powered by LLM integration (OpenAI GPT-4o-mini or local Ollama).
-- High-quality Web Speech API voice synthesis and speech-to-text recognition.
-- Seamless, complete interface translation in **English**, **हिन्दी (Hindi)**, and **मराठी (Marathi)**.
+- [Description](#-description)
+- [Demo Video](#-demo-video)
+- [Features](#-features)
+- [User Journey](#-user-journey)
+- [Project Structure](#-project-structure)
+- [Built With](#-built-with)
+- [Installation & Setup](#-installation--setup)
 
 ---
 
-## 🏗️ System Architecture & Tech Stack
+## 📚 Description
+
+**WaterLens** is an intelligent precision agriculture and autonomous irrigation platform engineered to empower modern farmers, agronomists, and agricultural researchers. It combines **Reinforcement Learning (RL) irrigation agents**, **Computer Vision crop health diagnostics**, **interactive thermal & NDVI farm zoning**, **live APMC Mandi market rates**, **government scheme intelligence**, and a **multilingual AI conversational voice & text assistant** (supporting English, हिन्दी, and मराठी). Whether deployed on desktop workstations or on mobile devices right in the field, WaterLens guides farmers through optimal water management, disease prevention, and financial subsidy maximization.
+
+---
+
+## 🎥 Demo Video
+
+See WaterLens in Action!
+
+📺 **[Watch Demo Video](#)** *(Coming soon)*
+
+*Experience the power of autonomous reinforcement learning irrigation, live drone NDVI thermal mapping, and multilingual AI diagnostics.*
+
+---
+
+## ✨ Features
+
+- 🤖 **Autonomous RL Irrigation Agent**: Simulates soil moisture dynamics, crop evapotranspiration, and weather forecasts with a custom Gymnasium reinforcement learning environment to optimize water consumption by up to 40%.
+- 🌿 **AI Crop Doctor & Leaf Pathology**: Instant disease detection, pest identification, and treatment recommendations from uploaded or live-scanned leaf images.
+- 🗺️ **Thermal & NDVI Farm Zoning**: Interactive satellite and drone imagery overlay displaying vegetation vigor (NDVI) and thermal stress zones with localized soil moisture telemetry.
+- 📈 **Live APMC Mandi Rates**: Real-time commodity price tracking across agricultural produce (Soybeans, Cotton, Onion, Wheat, Rice) with trend analytics and hold/sell AI advice.
+- 🏛️ **Government Schemes & Subsidies**: Curated database of state and central agricultural welfare schemes (PM-KUSUM, Magel Tyala Shet Tale, PM-Kisan) with eligibility checkers and direct links.
+- 🎙️ **Multilingual AI Voice & Chat Assistant**: Natural conversational AI voice & chat interface supporting **English**, **हिन्दी (Hindi)**, and **मराठी (Marathi)** with zero-crash smart agronomic fallback intelligence.
+- 📱 **Desktop & Mobile PWA Experience**: Fast, responsive Progressive Web App with 1-click home-screen installation on Android, iOS, tablets, and desktop computers.
+
+---
+
+## 🗺️ User Journey
+
+**Profile Setup → NDVI Farm Zoning → RL Irrigation Recommendation → AI Crop Disease Scan → Live Mandi Advisory**
+
+The journey transforms agricultural decision-making from guesswork into a data-driven precision science. Farmers start by configuring their farm location, soil profile, and crop parameters. The system monitors live soil moisture and NDVI vegetation index, while the autonomous RL agent determines optimal valve actuation timings. If disease appears in the field, the farmer snaps a photo with the mobile camera for immediate pathology analysis and checks real-time APMC Mandi prices to determine the most profitable harvest sale window.
+
+---
+
+## 📁 Project Structure
 
 ```
 WaterLens/
-├── api/                    # FastAPI Backend
-│   ├── main.py             # App initialization, CORS, and routing
-│   ├── models.py           # SQLAlchemy database schemas
-│   ├── routers/            # Modular API endpoints
-│   │   ├── auth.py         # JWT authentication & user sessions
-│   │   ├── profile.py      # Farmer & soil profile management
-│   │   ├── chat.py         # LLM chat streaming & assistance
-│   │   ├── crop_health.py  # Image pathology & diagnostics
-│   │   ├── telemetry.py    # IoT sensors, NDVI & thermal data
-│   │   ├── market.py       # APMC Mandi commodity rates
-│   │   └── schemes.py      # Government agriculture schemes
-│   └── rl/                 # Reinforcement learning environment
-├── frontend/               # React 18 + Vite Frontend
-│   ├── public/             # PWA icons, manifest.json, sw.js
+├── 🌸 frontend/                   # React Application (Vite + Tailwind CSS + PWA)
+│   ├── public/                    # PWA Manifest, Service Worker & App Icons
+│   │   ├── manifest.json          # Progressive Web App configuration
+│   │   ├── sw.js                  # Service Worker for offline caching
+│   │   └── favicon.svg            # WaterLens brand asset
 │   ├── src/
-│   │   ├── components/     # Reusable UI widgets (VoiceAssistant, ChatInterface)
-│   │   ├── pages/          # Full-page views (Dashboard, RLAgent, FarmMap, etc.)
-│   │   ├── config.js       # Dynamic host resolution (window.location.hostname)
-│   │   ├── i18n.jsx        # Complete multilingual translation dictionaries
-│   │   └── App.jsx         # Navigation, responsive layout & PWA handlers
-├── requirements.txt        # Python backend dependencies
-├── start_project.bat       # 1-Click Windows bootstrapper
-└── start_project.sh        # 1-Click Linux / macOS bootstrapper
+│   │   ├── components/            # Reusable UI components (VoiceAssistant, ChatInterface)
+│   │   ├── pages/                 # Dashboard, FarmMap, CropHealth, RLAgent, MarketRates, GovtSchemes, Profile
+│   │   ├── config.js              # Dynamic API host resolution for LAN & mobile access
+│   │   ├── i18n.jsx               # Complete multilingual dictionary (EN, HI, MR, ES)
+│   │   ├── App.jsx                # Responsive layout, mobile bottom bar & drawer navigation
+│   │   └── main.jsx               # React entrypoint & service worker registration
+│   ├── package.json               # Frontend dependencies and build scripts
+│   └── vite.config.js             # Vite bundler configuration
+│
+├── ⚙️ api/                         # Python Backend (FastAPI + SQLAlchemy)
+│   ├── main.py                    # REST Endpoints, AI fallbacks, CORS & IoT ingestion
+│   ├── auth.py                    # JWT authentication & user session management
+│   ├── database.py                # Database connection & session setup
+│   ├── models.py                  # SQLAlchemy schemas (Users, Sensors, Diagnostics)
+│   ├── waterlens.db               # SQLite database seed
+│   └── .env.example               # Environment variables configuration template
+│
+├── 📜 requirements.txt            # Python backend dependencies
+├── 🚀 start_project.bat           # 1-Click launcher for Windows
+├── 🚀 start_project.sh            # 1-Click launcher for macOS / Linux
+├── 📄 LICENSE                     # MIT Open-Source License
+└── 📖 README.md                   # Complete repository documentation
 ```
 
 ---
 
-## 🚀 Quick Start Guide (1-Click Run)
+## 🛠️ Built With
 
-### Option A: Windows (Automatic)
-Simply double-click `start_project.bat` or run:
+- **Frontend Framework**: [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling & UI**: [Tailwind CSS](https://tailwindcss.com/) + [Lucide Icons](https://lucide.dev/)
+- **Backend API**: [FastAPI](https://fastapi.tiangolo.com/) (Python 3.10+)
+- **Database**: [SQLite](https://sqlite.org/) with [SQLAlchemy ORM](https://www.sqlalchemy.org/)
+- **AI & ML**: Custom [Gymnasium](https://gymnasium.farama.org/) Reinforcement Learning Environment & [OpenAI GPT-4o-mini](https://platform.openai.com/)
+- **Voice & Localization**: Native Web Speech Recognition / Synthesis API + Contextual i18n
+- **Deployment & Mobile**: Progressive Web App (PWA) with Service Worker caching
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Prerequisites
+- **Python 3.10+**
+- **Node.js 18+** & **npm**
+
+---
+
+### 2. Quick Start (1-Click Run)
+
+#### Option A: Windows (Automatic)
+Double-click `start_project.bat` or run:
 ```cmd
 start_project.bat
 ```
-*This launches both the FastAPI backend and Vite frontend in separate dedicated terminal windows.*
 
-### Option B: macOS / Linux (Automatic)
-Grant execute permissions and run the startup script:
+#### Option B: macOS / Linux (Automatic)
+Grant permissions and execute:
 ```bash
 chmod +x start_project.sh
 ./start_project.sh
@@ -99,79 +129,32 @@ chmod +x start_project.sh
 
 ---
 
-## 🛠️ Manual Installation (Clean Setup)
+### 3. Manual Step-by-Step Setup
 
-If you prefer to run the components manually in two terminal tabs:
-
-### 1. Prerequisites
-- **Python 3.10+**
-- **Node.js 18+** & **npm**
-
-### 2. Backend Setup (Terminal 1)
+#### Backend Setup (Terminal 1)
 ```bash
-# Navigate to backend directory
 cd api
-
-# (Optional) Create and activate virtual environment
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On Linux/macOS:
-source venv/bin/activate
-
-# Install dependencies
 pip install -r ../requirements.txt
-
-# Start the FastAPI server
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
-- 📖 **Interactive Swagger API Documentation:** Open [http://localhost:8000/docs](http://localhost:8000/docs)
+- 📖 **Interactive Swagger API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-### 3. Frontend Setup (Terminal 2)
+#### Frontend Setup (Terminal 2)
 ```bash
-# Navigate to frontend directory
 cd frontend
-
-# Install Node dependencies
 npm install
-
-# Start Vite dev server with network exposure
 npm run dev -- --host
 ```
-- 🌐 **Web & Mobile Application:** Open [http://localhost:5173](http://localhost:5173)
+- 🌐 **Web & Mobile Application**: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 📱 How to Access on Mobile Phone via Wi-Fi
-
-1. Make sure your computer and mobile phone are connected to the same Wi-Fi network.
-2. In your computer's terminal, Vite will display your Network IP (e.g., `http://192.168.1.X:5173`).
-3. Open that URL in Chrome or Safari on your phone.
-4. Tap the **"Install App"** button in the header or drawer to add WaterLens directly to your phone's home screen!
-
----
-
-## ⚙️ Environment Configuration (Optional)
-
-Create a `.env` file in the `api/` directory if you wish to configure live OpenAI integration:
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-SECRET_KEY=your_jwt_secret_key_here
-```
-*(Note: WaterLens includes built-in offline smart responses and fallbacks, ensuring 100% functionality even without an OpenAI API key!)*
-
----
-
-## 🧪 Production Verification & Build
-
-To test production bundle compilation:
-```bash
-cd frontend
-npm run build
-```
-Build output is saved to `frontend/dist/` with 0 errors.
+### 📱 Mobile Phone Access (via Wi-Fi)
+1. Ensure computer and mobile device are connected to the same Wi-Fi network.
+2. Open the Network URL displayed in the Vite terminal (e.g., `http://192.168.X.X:5173`) on your phone browser.
+3. Tap **"Install App"** in the top bar or menu drawer to add WaterLens to your home screen.
 
 ---
 
 ## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
+Distributed under the [MIT License](LICENSE).
