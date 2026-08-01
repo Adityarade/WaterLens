@@ -13,6 +13,8 @@
 - [Description](#-description)
 - [Demo Video](#-demo-video)
 - [Features](#-features)
+- [Detailed Documentation](#-detailed-documentation)
+- [Key Features Documentation](#-key-features-documentation)
 - [User Journey](#-user-journey)
 - [Project Structure](#-project-structure)
 - [Built With](#-built-with)
@@ -23,6 +25,24 @@
 ## 📚 Description
 
 **WaterLens** is an intelligent precision agriculture and autonomous irrigation platform engineered to empower modern farmers, agronomists, and agricultural researchers. It combines **Reinforcement Learning (RL) irrigation agents**, **Computer Vision crop health diagnostics**, **interactive thermal & NDVI farm zoning**, **live APMC Mandi market rates**, **government scheme intelligence**, and a **multilingual AI conversational voice & text assistant** (supporting English, हिन्दी, and मराठी). Whether deployed on desktop workstations or on mobile devices right in the field, WaterLens guides farmers through optimal water management, disease prevention, and financial subsidy maximization.
+
+---
+
+## 📖 Detailed Documentation
+
+- 🧠 **[ML & RL Engine Documentation](docs/ml_engine.md)** - Deep dive into Reinforcement Learning, Evapotranspiration physics, and Water Conservation reward functions.
+- 🌿 **[Crop Doctor CV Documentation](docs/crop_doctor.md)** - How leaf pathology image recognition & diagnostics work.
+- ⚙️ **[Backend Documentation](docs/backend.md)** - API architecture, SQLite schemas, and smart agronomy endpoints.
+- 🌸 **[Frontend Documentation](docs/frontend.md)** - UI components, PWA setup, and multilingual i18n logic.
+
+---
+
+## 🔑 Key Features Documentation
+
+- 🤖 **[RL Irrigation Optimization](docs/rl_irrigation.md)** - Mathematical formulation of closed-loop soil moisture control.
+- 🗺️ **[Thermal & NDVI Farm Zoning](docs/ndvi_mapping.md)** - Multispectral vegetation vigor and crop water stress calculations.
+- 🎙️ **[Multilingual Voice Engine](docs/voice_engine.md)** - Web Speech API & client-side NLP intent recognition.
+- 📱 **[PWA & Offline Architecture](docs/pwa_offline.md)** - Service Worker caching and home-screen installation.
 
 ---
 
@@ -82,6 +102,16 @@ WaterLens/
 │   ├── models.py                  # SQLAlchemy schemas (Users, Sensors, Diagnostics)
 │   ├── waterlens.db               # SQLite database seed
 │   └── .env.example               # Environment variables configuration template
+│
+├── 📚 docs/                         # Comprehensive Technical Deep-Dives
+│   ├── ml_engine.md                # RL & Evapotranspiration physics math formulation
+│   ├── crop_doctor.md              # Computer vision leaf diagnostics & remedies
+│   ├── backend.md                  # FastAPI REST endpoints & smart fallback architecture
+│   ├── frontend.md                 # React SPA & PWA component hierarchy
+│   ├── rl_irrigation.md            # Closed-loop Q-learning/PPO moisture control
+│   ├── ndvi_mapping.md             # Thermal and NDVI multispectral zoning calculations
+│   ├── voice_engine.md             # Multilingual speech recognition & synthesis
+│   └── pwa_offline.md              # Service worker offline caching & installation
 │
 ├── 📜 requirements.txt            # Python backend dependencies
 ├── 🚀 start_project.bat           # 1-Click launcher for Windows
