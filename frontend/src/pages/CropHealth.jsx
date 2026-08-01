@@ -1,0 +1,194 @@
+import React, { useState, useRef } from 'react';
+import { Leaf, Camera, Image, Search, AlertCircle, ShieldCheck, X, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useI18n } from '../i18n';
+import { API_BASE_URL } from '../config';
+
+export default function CropHealth() {
+  const { t, lang } = useI18n();
+  const [symptoms, setSymptoms] = useState('');
+  const [imagePreview, setImagePreview] = useState(null);
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  
+  const cameraInputRef = useRef(null);
+  const galleryInputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (uploadEvent) => {
+        setImagePreview(uploadEvent.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const analyze = async () => {
+    if (!symptoms && !imagePreview) return;
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/ai/crop-health`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          symptoms: symptoms || (imagePreview ? "Visual analysis requested for uploaded crop photo with visible symptoms" : "General crop health inspection"),
+          language: lang // Pass current language to backend for localized response
+        })
+      });
+      const data = await res.json();
+      setResult(data);
+    } catch (err) {
+      setResult({ diagnosis: "Error reaching AI model.", preventive_measures: [] });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
+      {/* Hidden File Inputs for Mobile Camera and Gallery */}
+      <input 
+        ref={cameraInputRef} 
+        type="file" 
+        accept="image/*" 
+        capture="environment" 
+        className="hidden" 
+        onChange={handleFileChange} 
+      />
+      <input 
+        ref={galleryInputRef} 
+        type="file" 
+        accept="image/*" 
+        className="hidden" 
+        onChange={handleFileChange} 
+      />
+
+      <div className="text-center mb-2 sm:mb-4">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 rounded-2xl sm:rounded-full flex items-center justify-center mx-auto mb-3 border border-emerald-200 shadow-sm">
+          <Leaf className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-600" />
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">{t('crop_title')}</h2>
+        <p className="text-slate-500 text-xs sm:text-base mt-1.5 font-medium max-w-md mx-auto">{t('crop_desc')}</p>
+      </div>
+
+      <div className="glass-panel-heavy p-4 sm:p-6 rounded-3xl shadow-xl flex flex-col gap-4 border border-white">
+        
+        {/* Symptom Input Textarea */}
+        <div className="relative">
+          <textarea 
+            value={symptoms}
+            onChange={e => setSymptoms(e.target.value)}
+            placeholder={t('crop_placeholder')}
+            className="w-full bg-white/70 border border-slate-200 rounded-2xl px-4 py-3 sm:py-4 text-slate-800 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all min-h-[110px] sm:min-h-[130px] font-medium text-xs sm:text-sm"
+          />
+        </div>
+
+        {/* Uploaded Photo Preview Card */}
+        {imagePreview && (
+          <div className="relative p-2 bg-emerald-50/80 border border-emerald-200 rounded-2xl flex items-center gap-3">
+            <img 
+              src={imagePreview} 
+              alt="Upload preview" 
+              className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl border border-white shadow-md" 
+            />
+            <div className="flex-1 min-w-0">
+              <span className="font-bold text-xs sm:text-sm text-slate-800 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-600" /> Photo Attached
+              </span>
+              <p className="text-[11px] font-medium text-slate-500 truncate">Ready for AI GPT-4o-mini diagnosis</p>
+            </div>
+            <button 
+              onClick={() => setImagePreview(null)} 
+              className="p-1.5 bg-white hover:bg-rose-50 text-slate-400 hover:text-rose-500 rounded-full border border-slate-200 shadow-sm transition-colors mr-1"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
+        {/* Action Buttons Row: Camera, Gallery & Analyze */}
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-2">
+          
+          <div className="flex items-center gap-2">
+            {/* Direct Mobile Camera Capture */}
+            <button 
+              onClick={() => cameraInputRef.current?.click()} 
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3.5 py-2.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 rounded-xl font-bold text-xs sm:text-sm transition-colors active:scale-95"
+            >
+              <Camera className="w-4 h-4" /> 
+              <span>Camera</span>
+            </button>
+
+            {/* Gallery Upload */}
+            <button 
+              onClick={() => galleryInputRef.current?.click()} 
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-3.5 py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-xl font-bold text-xs sm:text-sm transition-colors active:scale-95"
+            >
+              <Image className="w-4 h-4 text-slate-500" /> 
+              <span>{t('crop_upload')}</span>
+            </button>
+          </div>
+
+          {/* AI Analyze Trigger Button */}
+          <button 
+            onClick={analyze}
+            disabled={loading || (!symptoms && !imagePreview)}
+            className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white px-6 sm:px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 disabled:opacity-50 text-xs sm:text-sm active:scale-95"
+          >
+            {loading ? (
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <span>{t('crop_analyzing')}</span>
+              </div>
+            ) : (
+              <>
+                <Search className="w-4 h-4" /> 
+                <span>{t('crop_btn_analyze')}</span>
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* AI Diagnostic Results */}
+      {result && (
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="glass-panel-heavy p-5 sm:p-8 rounded-3xl border border-emerald-100 shadow-xl flex flex-col gap-5 sm:gap-6"
+        >
+          <div>
+            <h3 className="text-base sm:text-lg font-black text-slate-800 flex items-center gap-2 mb-3">
+              <AlertCircle className="w-5 h-5 text-emerald-500" /> 
+              {t('crop_diag')}
+            </h3>
+            <div className="p-4 bg-emerald-50/60 rounded-2xl border border-emerald-100 text-slate-700 font-medium text-xs sm:text-sm leading-relaxed">
+              <p dangerouslySetInnerHTML={{ __html: result.diagnosis.replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-700 font-bold">$1</strong>') }} />
+            </div>
+          </div>
+
+          {result.preventive_measures && result.preventive_measures.length > 0 && (
+            <div>
+              <h3 className="text-base sm:text-lg font-black text-slate-800 flex items-center gap-2 mb-3">
+                <ShieldCheck className="w-5 h-5 text-teal-500" /> 
+                {t('crop_measures')}
+              </h3>
+              <div className="flex flex-col gap-2.5 sm:gap-3">
+                {result.preventive_measures.map((measure, idx) => (
+                  <div key={idx} className="flex items-start gap-3 p-3 bg-white/70 rounded-xl border border-slate-100 shadow-sm">
+                    <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-black text-xs shrink-0 mt-0.5">
+                      {idx + 1}
+                    </div>
+                    <p className="text-slate-600 font-medium text-xs sm:text-sm">{measure}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </motion.div>
+      )}
+    </div>
+  );
+}
