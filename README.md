@@ -164,7 +164,7 @@ chmod +x start_project.sh
 #### Backend Setup (Terminal 1)
 ```bash
 cd backend
-pip install -r ../requirements.txt
+pip install -r requirements.txt
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 - 📖 **Interactive Swagger API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
