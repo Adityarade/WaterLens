@@ -31,12 +31,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from typing import Optional
+
 class ChatRequest(BaseModel):
-    message: str
+    message: str = ""
     language: str = "en"
     
 class CropHealthRequest(BaseModel):
-    symptoms: str
+    symptoms: Optional[str] = ""
+    image: Optional[str] = None
+    image_base64: Optional[str] = None
     language: str = "en"
 
 # In-memory mock data for RL agent simulation
