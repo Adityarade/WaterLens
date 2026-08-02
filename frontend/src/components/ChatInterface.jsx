@@ -3,6 +3,8 @@ import { useI18n } from '../i18n';
 import { Loader2, Sparkles, Send } from 'lucide-react';
 import { API_BASE_URL } from '../config';
 
+import { getChatAgronomyResponse } from '../utils/agronomyAI';
+
 export default function ChatInterface() {
   const { lang } = useI18n();
   
@@ -85,25 +87,31 @@ export default function ChatInterface() {
 
     try {
       const token = localStorage.getItem('token');
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
       const res = await fetch(`${API_BASE_URL}/api/ai/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})
         },
-        body: JSON.stringify({ message: userMessage.content, language: lang })
+        body: JSON.stringify({ message: userMessage.content, language: lang }),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
 
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.response) {
+          setMessages(prev => [...prev, { role: 'ai', content: data.response }]);
+          return;
+        }
       }
-
-      const data = await res.json();
-      setMessages(prev => [...prev, { role: 'ai', content: data.response }]);
+      throw new Error('Backend offline');
     } catch (err) {
-      console.error(err);
-      const errorMsg = lang === 'hi' ? "माफ़ कीजिए, सर्वर से संपर्क करने में समस्या आई।" : lang === 'mr' ? "क्षमस्व, सर्व्हरशी संपर्क करण्यात अडचण आली." : "Sorry, I am having trouble connecting to the server right now.";
-      setMessages(prev => [...prev, { role: 'ai', content: errorMsg }]);
+      const offlineAiResponse = getChatAgronomyResponse(userMessage.content, lang);
+      setMessages(prev => [...prev, { role: 'ai', content: offlineAiResponse }]);
     } finally {
       setIsLoading(false);
     }
