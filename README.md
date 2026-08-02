@@ -95,7 +95,7 @@ WaterLens/
 │   ├── package.json               # Frontend dependencies and build scripts
 │   └── vite.config.js             # Vite bundler configuration
 │
-├── ⚙️ api/                         # Python Backend (FastAPI + SQLAlchemy)
+├── ⚙️ backend/                     # Python Backend (FastAPI + SQLAlchemy)
 │   ├── main.py                    # REST Endpoints, AI fallbacks, CORS & IoT ingestion
 │   ├── auth.py                    # JWT authentication & user session management
 │   ├── database.py                # Database connection & session setup
@@ -163,7 +163,7 @@ chmod +x start_project.sh
 
 #### Backend Setup (Terminal 1)
 ```bash
-cd api
+cd backend
 pip install -r ../requirements.txt
 python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```

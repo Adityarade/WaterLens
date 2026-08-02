@@ -1,6 +1,6 @@
-api/
-requirements.txt
+backend/
+docs/
 start_project.bat
 start_project.sh
+requirements.txt
 *.db
-docs/

@@ -17,7 +17,7 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 echo "[1/2] Starting Backend (FastAPI on Port 8000)..."
-cd "$SCRIPT_DIR/api"
+cd "$SCRIPT_DIR/backend"
 python3 -m uvicorn main:app --reload --host 0.0.0.0 --port 8000 &
 
 echo "[2/2] Starting Frontend (Vite on Port 5173)..."
