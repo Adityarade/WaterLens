@@ -15,9 +15,9 @@ export default function ChatInterface() {
       case 'mr':
         return "नमस्कार! मी आपला वॉटरलेंस AI सहाय्यक आहे. आज आपल्या शेतीच्या नियोजनात मी कशी मदत करू शकतो?";
       case 'es':
-        return "¡Hola! Soy tu asistente de IA de WaterLens. ¿Cómo puedo ayudarte a gestionar tu granja hoy?";
+        return "¡Hola! Soy tu asistente de IA de FasalRakshak AI. ¿Cómo puedo ayudarte a gestionar tu granja hoy?";
       default:
-        return "Hello! I'm your WaterLens AI assistant. How can I help you optimize your farm today?";
+        return "Hello! I'm your FasalRakshak AI AI assistant. How can I help you optimize your farm today?";
     }
   };
 

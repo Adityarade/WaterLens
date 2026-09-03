@@ -121,12 +121,12 @@ function LoginScreen({ onLogin }) {
         animate={{ opacity: 1, y: 0 }}
         className="glass-panel-heavy w-full max-w-md p-8 rounded-3xl relative z-10 flex flex-col items-center border border-white"
       >
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20 text-white">
-          <Droplet className="w-7 h-7" />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-100 rounded-2xl sm:rounded-[2rem] flex items-center justify-center mb-4 sm:mb-6 shadow-inner mx-auto">
+          <Leaf className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-600" />
         </div>
-        <h1 className="text-3xl font-black text-slate-800 mb-2 tracking-tight text-emerald-600">WaterLens</h1>
-        <p className="text-slate-500 font-medium text-center mb-6">
-          {mode === 'signin' ? 'Sign in to access your smart farm dashboard' : 'Create an account to start optimizing'}
+        <h1 className="text-3xl font-black text-slate-800 mb-2 tracking-tight text-emerald-600">FasalRakshak AI</h1>
+        <p className="text-sm text-slate-500 font-medium max-w-[260px] mx-auto leading-relaxed text-center mb-6">
+          AI-Powered Early Detection of Crop Diseases & Pest Infestations
         </p>
 
         {error && (
@@ -248,7 +248,7 @@ function WelcomeScreen({ onFinish }) {
           <Droplet className="w-10 h-10" />
         </div>
         <h1 className="text-5xl font-black text-slate-800 tracking-tight text-center">
-          Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">WaterLens</span>
+          Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">FasalRakshak AI</span>
         </h1>
         <p className="mt-4 text-lg text-slate-600 font-medium">Initializing your intelligent farm dashboard...</p>
         
@@ -452,7 +452,7 @@ function DashboardLayout({ onLogout }) {
             {/* Install PWA Button (Mobile) */}
             <button 
               onClick={handleInstallClick}
-              title="Install WaterLens App"
+              title="Install FasalRakshak AI App"
               className="flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-200 text-xs font-bold shadow-sm active:scale-95 transition-transform"
             >
               <Download className="w-3.5 h-3.5 text-emerald-600" />
@@ -790,7 +790,7 @@ function DashboardLayout({ onLogout }) {
                     <Download className="w-5 h-5" />
                   </div>
                   <div className="text-left flex-1">
-                    <div className="font-extrabold">{isInstalled ? "App Installed on Device" : "Install WaterLens App"}</div>
+                    <div className="font-extrabold">{isInstalled ? "App Installed on Device" : "Install FasalRakshak AI App"}</div>
                     <div className="text-[11px] font-medium text-emerald-100">Add to Home Screen for fast offline access</div>
                   </div>
                 </button>
@@ -928,7 +928,7 @@ function DashboardLayout({ onLogout }) {
                       <Smartphone className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-lg">Install WaterLens App</h3>
+                      <h3 className="font-extrabold text-slate-800 text-lg">Install FasalRakshak AI App</h3>
                       <p className="text-xs text-slate-500 font-medium">Use like a native app on Mobile or Desktop</p>
                     </div>
                   </div>

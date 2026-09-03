@@ -1,4 +1,4 @@
-// Dynamic API Configuration for WaterLens
+// Dynamic API Configuration for FasalRakshak AI
 // Automatically adapts to local machine, LAN/Wi-Fi mobile testing, or cloud deployments.
 
 const getApiBaseUrl = () => {

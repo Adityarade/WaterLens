@@ -1,5 +1,5 @@
 /**
- * WaterLens Multi-Tier Agronomy Intelligence & Computer Vision Engine
+ * FasalRakshak AI Multi-Tier Agronomy Intelligence & Computer Vision Engine
  * Full multilingual offline agronomic diagnostics (English, Hindi, Marathi, Spanish).
  */
 
@@ -339,7 +339,7 @@ export const getDiseaseDictionary = (hasImage = true) => {
         measures: [
           "Apply broad-spectrum preventative fungicide: Copper Oxychloride 50% WP @ 2.5g/L or Mancozeb @ 2g/L.",
           "Foliar spray with Chelated Micronutrient Grade Formula (Zn, Fe, Mn, B) @ 2g/L.",
-          "Maintain optimal root aeration with WaterLens RL precision irrigation; avoid over-saturation."
+          "Maintain optimal root aeration with FasalRakshak AI RL precision irrigation; avoid over-saturation."
         ]
       },
       hi: {
@@ -373,7 +373,7 @@ export const getDiseaseDictionary = (hasImage = true) => {
         measures: [
           "Aplicar Oxicloruro de Cobre 50% WP @ 2.5g/L o Mancozeb @ 2g/L.",
           "Pulverización foliar con micronutrientes quelatados (Zn, Fe, Mn, B) @ 2g/L.",
-          "Optimizar el riego por goteo con WaterLens para evitar saturación."
+          "Optimizar el riego por goteo con FasalRakshak AI para evitar saturación."
         ]
       }
     }
@@ -457,7 +457,7 @@ export const getChatAgronomyResponse = (userMessage = '', lang = 'en') => {
   }
 
   if (msg.includes('water') || msg.includes('moisture') || msg.includes('irrigation')) {
-    return "According to the WaterLens RL model, current soil moisture is optimal at 42%. With high precipitation probability (85%) in the forecast, irrigation is safely held for the next 12 hours.";
+    return "According to the FasalRakshak AI RL model, current soil moisture is optimal at 42%. With high precipitation probability (85%) in the forecast, irrigation is safely held for the next 12 hours.";
   } else if (msg.includes('disease') || msg.includes('leaf') || msg.includes('spray') || msg.includes('pest')) {
     return "For instant leaf pathology analysis, use the 'Crop Doctor' tab to snap or upload a photo. Recommended preventive bio-fungicide: Copper Oxychloride @ 2.5g/L or cold-pressed Neem Oil @ 2ml/L.";
   } else if (msg.includes('market') || msg.includes('mandi') || msg.includes('rate') || msg.includes('price')) {
@@ -466,5 +466,5 @@ export const getChatAgronomyResponse = (userMessage = '', lang = 'en') => {
     return "Active agricultural subsidies include the Farm Pond Subsidy Scheme (100% grant) and PM-KUSUM Solar Pump Scheme. Explore the 'Govt Schemes' tab to verify eligibility.";
   }
 
-  return "Hello! I am your WaterLens AI Agriculture Assistant. Ask me about precision irrigation schedules, real-time weather alerts, crop disease management, mandi market rates, or government subsidies.";
+  return "Hello! I am your FasalRakshak AI AI Agriculture Assistant. Ask me about precision irrigation schedules, real-time weather alerts, crop disease management, mandi market rates, or government subsidies.";
 };

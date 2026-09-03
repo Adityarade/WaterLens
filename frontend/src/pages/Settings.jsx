@@ -200,7 +200,7 @@ export default function SettingsPage() {
           </h3>
           <div className="flex flex-col gap-3 sm:gap-4">
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-              Connect physical IoT sensors (ESP32, Arduino, Raspberry Pi) to WaterLens to stream live soil moisture, NPK, and temperature data directly to your dashboard.
+              Connect physical IoT sensors (ESP32, Arduino, Raspberry Pi) to FasalRakshak AI to stream live soil moisture, NPK, and temperature data directly to your dashboard.
             </p>
             
             <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
